@@ -6,7 +6,7 @@
         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
     
-  	<display-name>spring-mvc</display-name>
+  	<display-name>spring-restful</display-name>
   	
   	<context-param>
         <param-name>contextConfigLocation</param-name>
