@@ -12,7 +12,7 @@ abstract class AbstractPostTest extends AbstractRestfulTest {
 
 	@Override
 	String getBaseUri() {
-		''
+		'http://localhost:8080/spring-restful'
 	}
 
 	@Override
