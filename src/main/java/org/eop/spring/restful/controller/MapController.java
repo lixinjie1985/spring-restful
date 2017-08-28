@@ -1,6 +1,7 @@
 package org.eop.spring.restful.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MapController {
 
 	@GetMapping("/get")
-	public Map<String, Object> getMap(Map<String, Object> map) {
+	public Map<String, Object> getMap() {
+		
+		Map<String, Object> map = new HashMap<>();
 		map.put("int", 1010);
 		map.put("string", "hello");
 		map.put("bool", true);
