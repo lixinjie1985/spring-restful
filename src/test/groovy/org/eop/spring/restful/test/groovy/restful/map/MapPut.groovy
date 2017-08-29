@@ -18,12 +18,12 @@ class MapPut extends AbstractPutTest {
 
 	@Override
 	Map getHttpHeaders() {
-		['Content-Type':'application/json']
+		['Content-Type':'application/json','Accept':'application/json']
 	}
 
 	@Override
 	<T> T getRequestBody() {
-		'{"method":"put"}'
+		["method":"put"]
 	}
 
 }

@@ -1,12 +1,13 @@
 package org.eop.spring.restful.controller;
 
-import java.util.List;
+import java.util.Date;
 
-import org.eop.spring.restful.result.RestResult;
+import org.eop.spring.restful.bean.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,38 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lixinjie
  * @since 2017-08-19
  */
-@RequestMapping(path = "/user", consumes = {})
+@RequestMapping(path = "/user")
 @RestController
 public class UserController {
 
 	
-	@GetMapping("/add")
-	public RestResult<String> addUser1() {
-		return new RestResult<String>();
+	@GetMapping("/get")
+	public User getUser() {
+		return new User(1010L, "李新杰-get", "000000", new Date());
 	}
 	
-	@PostMapping("/add")
-	public RestResult<String> addUser() {
-		return new RestResult<String>();
+	@PostMapping("/post")
+	public User postUser(@RequestBody User user) {
+		user.setUserName(user.getUserName() + "-post");
+		return user;
 	}
 	
-	@GetMapping("/list")
-	public RestResult<List<String>> listUsers() {
-		return new RestResult<List<String>>();
+	@PutMapping("/put")
+	public User putUser(@RequestBody User user) {
+		user.setUserName(user.getUserName() + "-put");
+		return user;
 	}
 	
-	@GetMapping("/edit/{id:\\d+}")
-	public RestResult<String> editUser1() {
-		return new RestResult<String>();
-	}
-	
-	@PutMapping("/edit")
-	public RestResult<String> editUser() {
-		return new RestResult<String>();
-	}
-	
-	@DeleteMapping("/delete/{id:\\d+}")
-	public RestResult<String> deleteUser() {
-		return new RestResult<String>();
+	@DeleteMapping("/delete")
+	public User deleteUser(@RequestBody User user) {
+		user.setUserName(user.getUserName() + "-delete");
+		return user;
 	}
 }

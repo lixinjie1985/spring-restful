@@ -1,14 +1,14 @@
-package org.eop.spring.restful.test.groovy.restful.map
+package org.eop.spring.restful.test.groovy.restful.user
 
 import java.util.Map
 
 import org.eop.spring.restful.test.groovy.restful.AbstractPostTest
 
-class MapPost extends AbstractPostTest {
+class UserPost extends AbstractPostTest {
 
 	@Override
 	String getRestUri() {
-		'/map/post'
+		'/user/post'
 	}
 
 	@Override
@@ -23,7 +23,7 @@ class MapPost extends AbstractPostTest {
 
 	@Override
 	<T> T getRequestBody() {
-		'{"method":"post-中文"}'
+		'{"id":1010,"userName":"李新杰","password":"000000","registerTime":1503971529894}'
 	}
 
 }

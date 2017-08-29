@@ -1,14 +1,14 @@
-package org.eop.spring.restful.test.groovy.restful.map
+package org.eop.spring.restful.test.groovy.restful.user
 
 import java.util.Map
 
-import org.eop.spring.restful.test.groovy.restful.AbstractDeleteTest
+import org.eop.spring.restful.test.groovy.restful.AbstractPutTest
 
-class MapDelete extends AbstractDeleteTest {
+class UserPut extends AbstractPutTest {
 
 	@Override
 	String getRestUri() {
-		'/map/delete'
+		'/user/put'
 	}
 
 	@Override
@@ -23,7 +23,7 @@ class MapDelete extends AbstractDeleteTest {
 
 	@Override
 	<T> T getRequestBody() {
-		'{"method":"delete"}'
+		["id":1010,"userName":"李新杰","password":"000000","registerTime":1503971529894]
 	}
 
 }
