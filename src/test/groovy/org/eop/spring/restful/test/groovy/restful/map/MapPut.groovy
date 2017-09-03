@@ -1,8 +1,6 @@
 package org.eop.spring.restful.test.groovy.restful.map
 
-import java.util.Map
-
-import org.eop.spring.restful.test.groovy.restful.AbstractPutTest
+import org.eop.spring.restful.test.java.restful.AbstractPutTest
 
 class MapPut extends AbstractPutTest {
 
@@ -12,12 +10,12 @@ class MapPut extends AbstractPutTest {
 	}
 
 	@Override
-	Map getUriVars() {
+	Map<String, Object> getUriVars() {
 		[:]
 	}
 
 	@Override
-	Map getHttpHeaders() {
+	Map<String, Object> getHttpHeaders() {
 		['Content-Type':'application/json','Accept':'application/json']
 	}
 

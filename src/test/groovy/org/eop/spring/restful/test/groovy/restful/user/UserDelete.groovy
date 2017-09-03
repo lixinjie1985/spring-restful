@@ -1,8 +1,6 @@
 package org.eop.spring.restful.test.groovy.restful.user
 
-import java.util.Map
-
-import org.eop.spring.restful.test.groovy.restful.AbstractDeleteTest
+import org.eop.spring.restful.test.java.restful.AbstractDeleteTest
 
 class UserDelete extends AbstractDeleteTest {
 
@@ -12,12 +10,12 @@ class UserDelete extends AbstractDeleteTest {
 	}
 
 	@Override
-	Map getUriVars() {
+	Map<String, Object> getUriVars() {
 		[:]
 	}
 
 	@Override
-	Map getHttpHeaders() {
+	Map<String, Object> getHttpHeaders() {
 		['Content-Type':'application/json;charset=UTF-8','Accept':'application/json']
 	}
 
