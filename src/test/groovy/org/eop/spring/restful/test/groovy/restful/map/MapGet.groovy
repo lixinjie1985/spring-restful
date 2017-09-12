@@ -1,6 +1,7 @@
 package org.eop.spring.restful.test.groovy.restful.map
 
 import org.eop.spring.restful.test.java.restful.AbstractGetTest
+import org.springframework.http.HttpMethod
 
 class MapGet extends AbstractGetTest {
 
@@ -21,7 +22,7 @@ class MapGet extends AbstractGetTest {
 
 	@Override
 	<T> T getRequestBody() {
-		''
+		null
 	}
 
 }

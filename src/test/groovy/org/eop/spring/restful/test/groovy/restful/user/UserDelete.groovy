@@ -21,7 +21,7 @@ class UserDelete extends AbstractDeleteTest {
 
 	@Override
 	<T> T getRequestBody() {
-		'{"id":1010,"userName":"李新杰","password":"000000","registerTime":1503971529895}'
+		'{"id":1010,"userName":"李新杰","password":"000000","registerTime":"2017-09-12 18:06:58"}'
 	}
 
 }

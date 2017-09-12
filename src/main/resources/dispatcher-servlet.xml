@@ -10,9 +10,39 @@
     	http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-    <mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="org.eop.spring.restful.controller"></context:component-scan>
+    <mvc:annotation-driven>
+    	<mvc:message-converters register-defaults="true">
+    		<ref bean="jackson2"/>
+    		<ref bean="jackson2Xml"/>
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+    
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**"/>
+    		<bean class="org.eop.spring.restful.handler.interceptor.ExceptionHandlerInterceptor"></bean>
+    	</mvc:interceptor>
+    </mvc:interceptors>
+    
+	<context:component-scan base-package="org.eop.spring.restful.controller,org.eop.spring.restful.exception.handler"></context:component-scan>
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</bean>
+	
+	<bean id="jackson2" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="objectMapper">
+			<bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+				<property name="simpleDateFormat" value="yyyy-MM-dd HH:mm:ss" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="jackson2Xml" class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+		<property name="objectMapper">
+			<bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+				<property name="createXmlMapper" value="true" />
+				<property name="simpleDateFormat" value="yyyy-MM-dd HH:mm:ss" />
+			</bean>
+		</property>
 	</bean>
 </beans>

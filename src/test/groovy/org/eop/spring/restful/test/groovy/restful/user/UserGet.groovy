@@ -21,7 +21,7 @@ class UserGet extends AbstractGetTest {
 
 	@Override
 	<T> T getRequestBody() {
-		''
+		null
 	}
 
 }
