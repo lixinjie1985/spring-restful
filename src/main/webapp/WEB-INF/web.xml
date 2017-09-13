@@ -18,7 +18,7 @@
     </context-param>
     <filter>
     	<filter-name>commonLogFilter</filter-name>
-    	<filter-class>org.eop.spring.restful.filter.CommonLogFilter</filter-class>
+    	<filter-class>org.eop.spring.restful.filter.CommonLoggingFilter</filter-class>
     </filter>
     <filter-mapping>
     	<filter-name>commonLogFilter</filter-name>
