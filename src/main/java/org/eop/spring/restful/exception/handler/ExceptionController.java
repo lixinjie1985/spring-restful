@@ -1,5 +1,6 @@
 package org.eop.spring.restful.exception.handler;
 
+import org.eop.spring.restful.result.RestResult;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.core.Ordered;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
@@ -29,6 +31,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
+@RestController
 public class ExceptionController {
 
 	@SuppressWarnings("deprecation")
@@ -78,8 +81,9 @@ public class ExceptionController {
 	}
 	
 	@ExceptionHandler(HttpMessageNotReadableException.class)
-	public String handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
-		return "{\"code\":400,\"desc\":\"Bad Request\"}";
+	public RestResult<Object> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
+		//return "{\"code\":400,\"desc\":\"Bad Request\"}";
+		return new RestResult<Object>(400, "Bad Request");
 	}
 	
 	@ExceptionHandler(HttpMessageNotWritableException.class)
